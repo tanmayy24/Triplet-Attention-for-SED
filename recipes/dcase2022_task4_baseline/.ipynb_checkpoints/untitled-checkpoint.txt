@@ -1,0 +1,21 @@
+cd notebooks
+cd ntu
+cd Work*
+cd DE*
+cd rec*
+cd d*
+source activate /notebooks/ntu/MTL/dcase
+
+python train_sed_stage_two.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_58/last.ckpt
+
+python train_sed_stage_two_generate_label.py --strong_real --eval_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/last.ckpt
+
+python train_sed_stage_two_low.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_57/last.ckpt
+
+
+python train_sed_stage_two_low_test.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_57/last.ckpt
+
+python train_sed_stage_two_low_test.py --strong_real --eval_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_57/last.ckpt
+
+
+python train_sed_stage_two.py --strong_real --resume_from_checkpoint=/notebooks/ntu/Workshop/DESED_task/recipes/dcase2022_task4_baseline/exp/2022_baseline/version_69/last.ckpt
